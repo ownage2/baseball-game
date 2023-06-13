@@ -13,9 +13,9 @@
 // 랜덤 세자리 수 생성 함수 2 (김정우)
 function makeTarget() {
     let targetSet = new Set(); // Set 객체는 유일한 값을 저장할 수 있다.
-    while(targetSet.size < 3) { // 세자리 수가 될 때까지 반복
+    while (targetSet.size < 3) { // 세자리 수가 될 때까지 반복
         targetSet.add(Math.floor(Math.random() * (10 - 0) + 0)); // 0 ~ 9 까지 랜덤한 수를 targetSet에 추가
-    } 
+    }
     return [...targetSet].join(""); // String으로 return
 }
 
@@ -57,28 +57,28 @@ let count = 1; // 시도 횟수
 // 입력 받기
 rl.question(`${count}번째 시도 : `, function guess(input) {
     // 입력값이 세자리 수가 아닌 경우 재시도
-    if(input.length !== 3) {
+    if (input.length !== 3) {
         console.log("세자리 숫자를 입력해주세요.");
         rl.question(`${count}번째 시도 : `, guess);
         return;
     }
-    
+
     // 정답 비교 함수 수행 후 balls, strikes에 값 할당
     let { balls, strikes } = compare(target, input);
-    
+
     // 볼, 스트라이크를 표현
-    if (balls == 0 && strikes == 0) {
+    if (balls === 0 && strikes === 0) {
         console.log(balls + "B" + strikes + "S");
-    } else if (balls == 0) {
+    } else if (balls === 0) {
         console.log(strikes + "S");
-    } else if (strikes == 0) {
+    } else if (strikes === 0) {
         console.log(balls + "B");
     } else {
         console.log(balls + "B" + strikes + "S");
     }
-    
+
     // 3S로 맞췄을 경우 입력 종료
-    if (strikes == 3) {
+    if (strikes === 3) {
         rl.close();
     } else { // 아닐 경우 count 더하여 재시도
         count++;
@@ -89,5 +89,5 @@ rl.question(`${count}번째 시도 : `, function guess(input) {
 // 입력 종료 후 결과 출력
 rl.on("close", () => {
     console.log(`${count}번만에 맞히셨습니다.\n게임을 종료합니다.`);
-	process.exit();
+    process.exit();
 });
