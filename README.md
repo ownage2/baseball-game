@@ -1,10 +1,10 @@
-# 숫자야구 프로그램 만들기
+# ⚾ 숫자야구 프로그램 만들기
 
 [**⚾ 주차 별 팀 과제**](https://teamsparta.notion.site/2bf4c036bf0c4e698e956a661ea3796a)
 
 ## 📝 구현 과정
 
-### 1. 랜덤 세자리 수 생성 함수
+### ✏️ 1. 랜덤 세자리 수 생성 함수
 
 #### 방법 1. 
 
@@ -61,7 +61,7 @@ do {
 
 ⚠️ 폐기 이유 : 0으로 시작하는 세자리 수를 만들 수 없음
 
-### 2. 정답 비교 함수
+### ✏️ 2. 정답 비교 함수
 
 #### 방법 1.
 ```js
@@ -96,8 +96,21 @@ function compare2(target, guess) {
 }
 ```
 
-### 3. 입출력 구현 및 볼, 스트라이크 표현
+### ✏️ 3. 입출력 구현
 ```js
+// readline 모듈 불러오기
+const readline = require("readline");
+
+// 인터페이스 생성하기
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// 게임 시작
+console.log("컴퓨터가 숫자를 생성하였습니다. 답을 맞춰보세요!")
+let count = 1; // 시도 횟수
+
 rl.question(`${count}번째 시도 : `, function guess(input) {
     // 입력값이 세자리 수가 아닌 경우 재시도
     if(input.length !== 3) {
@@ -109,7 +122,7 @@ rl.question(`${count}번째 시도 : `, function guess(input) {
     // 정답 비교 함수 수행 후 balls, strikes에 값 할당
     let { balls, strikes } = compare(target, input);
     
-    // 볼, 스트라이크를 표현
+    // 볼, 스트라이크를 표현하여 출력
     if (balls === 0 && strikes === 0) {
         console.log(balls + "B" + strikes + "S");
     } else if (balls === 0) {
@@ -136,6 +149,8 @@ rl.on("close", () => {
 });
 ```
 
-## 결과
+## 🚀 결과
 
-![]('./src/baseball-game.png')
+![result_screenshot](./src/baseball-game.png)
+
+![result_screenshot_2](./src/baseball-game-2.png)

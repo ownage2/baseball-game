@@ -66,7 +66,7 @@ rl.question(`${count}번째 시도 : `, function guess(input) {
     // 정답 비교 함수 수행 후 balls, strikes에 값 할당
     let { balls, strikes } = compare(target, input);
     
-    // 볼, 스트라이크를 표현
+    // 볼, 스트라이크를 표현하여 출력
     if (balls === 0 && strikes === 0) {
         console.log(balls + "B" + strikes + "S");
     } else if (balls === 0) {
