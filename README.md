@@ -85,12 +85,13 @@ function compare(target, guess) {
 
 #### 방법 2. 
 ```js
-function compare2(target, guess) {
+function compare(target, guess) {
     let guess_temp = guess.split("");
-    let { strikes, balls } = { 0, 0 };
+    let strikes = 0;
+    let balls = 0;
 
-    guess.forEach((num, index) => num === target.charAt(index)
-    ? strike++ : target.includes(num) && balls++)
+    guess_temp.forEach((num, index) => num === target.charAt(index)
+    ? strikes++ : target.includes(num) && balls++)
 
     return { balls, strikes };
 }
