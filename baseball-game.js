@@ -14,10 +14,22 @@
 function makeTarget() {
     let targetSet = new Set(); // Set 객체는 유일한 값을 저장할 수 있다.
     while(targetSet.size < 3) { // 세자리 수가 될 때까지 반복
-        targetSet.add(Math.floor(Math.random() * (10 - 0) + 0)); // 0 ~ 9 까지 랜덤한 수를 targetSet에 추가
+        targetSet.add(Math.floor(Math.random() * (10 - 0) + 0)); // 0 ~ 9까지 랜덤한 수를 targetSet에 추가
     } 
     return [...targetSet].join(""); // String으로 return
 }
+
+// 랜덤 세자리 수 생성 함수 3
+// function makeTarget2() {
+//     let arr = [];
+//     while(arr.length < 3) { // 세자리 수가 될 때까지 반복
+//         let temp = Math.floor(Math.random() * (10 - 0) + 0);
+//         if(!arr.includes(temp)) { // arr에 temp가 없을 때 수행
+//             arr.push(temp); // 0 ~ 9까지 랜덤한 수를 arr에 추가
+//         }
+//     } 
+//     return [...arr].join(""); // String으로 return
+// }
 
 // 타겟 숫자 생성
 // let target = generateNumber();

@@ -4,7 +4,7 @@
 
 ## 📝 구현 과정
 
-### ✏️ 1. 랜덤 세자리 수 생성 함수
+### ✏️ 랜덤 세자리 수 생성 함수
 
 #### 방법 1. 
 
@@ -61,7 +61,22 @@ do {
 
 ⚠️ 폐기 이유 : 0으로 시작하는 세자리 수를 만들 수 없음
 
-### ✏️ 2. 정답 비교 함수
+#### 방법 4.
+```js
+// 랜덤 세자리 수 생성 함수 3
+function makeTarget2() {
+    let arr = [];
+    while(arr.length < 3) { // 세자리 수가 될 때까지 반복
+        let temp = Math.floor(Math.random() * (10 - 0) + 0);
+        if(!arr.includes(temp)) { // arr에 temp가 없을 때 수행
+            arr.push(temp); // 0 ~ 9까지 랜덤한 수를 arr에 추가
+        }
+    } 
+    return [...arr].join(""); // String으로 return
+}
+```
+
+### ✏️ 정답 비교 함수
 
 #### 방법 1.
 ```js
@@ -97,7 +112,7 @@ function compare(target, guess) {
 }
 ```
 
-### ✏️ 3. 입출력 구현
+### ✏️ 입출력 구현
 ```js
 // readline 모듈 불러오기
 const readline = require("readline");
